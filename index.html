@@ -538,7 +538,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid testimonial py-5">
+    <!-- <div class="container-fluid testimonial py-5">
         <div class="container py-5">
             <div class="pb-5">
                 <h4 class="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">OUR STUDENT Reviews</h4>
@@ -559,7 +559,9 @@
                             <i class="fas fa-star text-secondary"></i>
                             <i class="fas fa-star text-secondary"></i>
                             <i class="fas fa-star"></i>
+                            
                         </div>
+                        
                     </div>
                     <div class="testimonial-content p-4">
                         <p class="fs-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -639,7 +641,151 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <!-- new what our students say testimonial section -->
+    <section class="testimonial-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center pb-5">
+                <h4 class="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">OUR STUDENT Reviews</h4>
+                <h1 class="display-4 fw-bold wow fadeInUp" data-wow-delay="0.3s">What Our Students Say</h1>
+            </div>
+    
+            <div id="testimonialCarousel" class="carousel slide shadow-lg rounded p-3 bg-white" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner text-center">
+    
+                    <!-- Video 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial-item border rounded p-4">
+                            <video class="rounded video-player" autoplay loop playsinline muted style="max-width: 75%; height: auto;" controls>
+                                <source src="./videos/WhatsApp Video 2025-01-30 at 20.08.37_16e09a0e.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+    
+                    <!-- Video 2 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-item border rounded p-4">
+                            <video class="rounded video-player" autoplay loop playsinline muted style="max-width: 75%; height: auto;" controls>
+                                <source src="./videos/WhatsApp Video 2025-01-30 at 20.08.39_08a9f704.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+    
+                    <!-- Video 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-item border rounded p-4">
+                            <video class="rounded video-player" autoplay loop playsinline muted style="max-width: 75%; height: auto;" controls>
+                                <source src="./videos/WhatsApp Video 2025-01-30 at 20.08.46_aa6227cb.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+    
+                    <!-- Video 4 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-item border rounded p-4">
+                            <video class="rounded video-player" autoplay loop playsinline muted style="max-width: 75%; height: auto;" controls>
+                                <source src="./videos/WhatsApp Video 2025-01-30 at 20.08.49_08ac59bc.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+    
+                    <!-- Video 5 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-item border rounded p-4">
+                            <video class="rounded video-player" autoplay loop playsinline muted style="max-width: 75%; height: auto;" controls>
+                                <source src="./videos/WhatsApp Video 2025-01-30 at 20.08.52_fd1a8c61.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev manual-nav-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next manual-nav-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let carousel = document.getElementById("testimonialCarousel");
+            let videos = document.querySelectorAll(".video-player");
+    
+            function pauseAllVideos() {
+                videos.forEach(video => {
+                    video.pause();
+                    video.currentTime = 0; // Reset video to start
+                });
+            }
+    
+            function playActiveVideo() {
+                let activeVideo = document.querySelector(".carousel-item.active video");
+                if (activeVideo) {
+                    activeVideo.play(); // Play the video of the active carousel item
+                }
+            }
+    
+            // Automatic sliding feature
+            carousel.addEventListener("slide.bs.carousel", function () {
+                pauseAllVideos(); // Pause all videos before sliding
+            });
+    
+            carousel.addEventListener("slid.bs.carousel", function () {
+                playActiveVideo(); // Play the video of the newly active carousel item
+            });
+    
+            // Play the first video automatically on page load
+            let firstVideo = document.querySelector(".carousel-item.active video");
+            if (firstVideo) {
+                firstVideo.play(); // Ensure first video plays
+            }
+        });
+    </script>
+    
+    <style>
+        .manual-nav-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            position: absolute;
+            top: 50%; /* Centers the buttons vertically */
+            transform: translateY(-50%); /* Adjusts for exact vertical centering */
+            z-index: 10; /* Ensures the buttons are above the video */
+        }
+        
+        .carousel-control-prev {
+            left: 10px; /* Moves the left button a little inside from the edge */
+        }
+        
+        .carousel-control-next {
+            right: 10px; /* Moves the right button a little inside from the edge */
+        }
+        
+        .manual-nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+    </style>
+    
     <!-- Testimonial End -->
     <div class="container-fluid contact py-5">
         <div class="container py-5">
